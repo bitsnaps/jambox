@@ -1,0 +1,13 @@
+[build]
+  publish = "dist"
+# Generate a static project
+  command = "npm run generate"
+[functions]
+  directory = "./functions"
+# more at: https://docs.netlify.com/configure-builds/file-based-configuration/
+# May cause issue when defining store
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
